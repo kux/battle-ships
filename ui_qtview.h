@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'qtview.ui'
 **
-** Created: Mon Dec 1 15:22:21 2008
+** Created: Sat Dec 13 06:52:15 2008
 **      by: Qt User Interface Compiler version 4.4.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
