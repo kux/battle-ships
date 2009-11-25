@@ -9,7 +9,7 @@
 using namespace std;
 
 
-HitResult* Ship::HitMe( CoordinateType coord )throw ( std::bad_alloc )
+HitResult* Ship::hitMe( CoordinateType coord )throw ( std::bad_alloc )
 {
 
 	CoordinateListType::iterator is = find( hitedAt_.begin(), hitedAt_.end(), coord );
@@ -27,7 +27,7 @@ HitResult* Ship::HitMe( CoordinateType coord )throw ( std::bad_alloc )
 	{
 		CoordinateListType coords = pattern_.getRelativePositions();
 		copy( coords.begin(), coords.end(), back_inserter(hitedAt_) );
-		return board_->HitMe( this );
+		return board_->hitMe( this );
 	}
 
 	//another component was hit

@@ -4,11 +4,11 @@
 using namespace std;
 
 
-void Model::Notify( UpdateInfo info )
+void Model::notify( UpdateInfo info )
 {
 	list<View*>::iterator end = viewList_.end();
 	for ( list<View*>::iterator i = viewList_.begin(); i!=end; ++i )
 	{
-		(*i)->Update( info );
+		(*i)->update( info );
 	}
 }

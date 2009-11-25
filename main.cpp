@@ -59,14 +59,14 @@ int main(int argc, char *argv[])
     board->attachView( consoleView.get() );
 
     CoordinateType cc(0,0);
-    board->PlaceShip( vPatterns.at(0), cc,	rot0, false );
+    board->placeShip( vPatterns.at(0), cc,	rot0, false );
     //cc.first = 1; cc.second = 1;
     //board->PlaceShip( vPatterns.at(1), cc,	rot90, false );
     cc.first = 2; cc.second = 0;
-    board->PlaceShip( vPatterns.at(1), cc,	rot90, false );
+    board->placeShip( vPatterns.at(1), cc,	rot90, false );
 
     cc.first = 1; cc.second = 2;
-    board->PlaceShip( vPatterns.at(3), cc,	rot90, true );
+    board->placeShip( vPatterns.at(3), cc,	rot90, true );
 
     w.show();
     return a.exec();

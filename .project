@@ -74,7 +74,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.environment</key>
-					<value>PATH=/usr/local/Trolltech/Qt-4.4.3/bin:${env_var:PATH}:${env_var:PATH}|</value>
+					<value>PATH=/home/kux/swtools/qt-sdk-2009.03/qt/bin:${env_var:PATH}:${env_var:PATH}:/usr/local/Trolltech/Qt-4.4.3/bin|</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.stopOnError</key>

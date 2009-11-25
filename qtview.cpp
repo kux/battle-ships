@@ -97,7 +97,7 @@ void QtView::gridClicked( int id )
 void QtView::attack()
 {
 	CoordinateType coord( lastclickedi_, lastclickedj_ );
-	list<HitResult*> hrl = gameb_->Attack( coord );
+	list<HitResult*> hrl = gameb_->attack( coord );
 	for( list<HitResult*>::iterator i = hrl.begin(); i!=hrl.end(); ++i)
 	{
 		delete (*i);
@@ -107,41 +107,41 @@ void QtView::attack()
 void QtView::moveup()
 {
 	CoordinateType coord( lastclickedi_, lastclickedj_ );
-	gameb_->MoveShips( coord, mup );
+	gameb_->moveShips( coord, mup );
 }
 
 void QtView::movedown()
 {
 	CoordinateType coord( lastclickedi_, lastclickedj_ );
-	gameb_->MoveShips( coord, mdown );
+	gameb_->moveShips( coord, mdown );
 }
 
 
 void QtView::moveleft()
 {
 	CoordinateType coord( lastclickedi_, lastclickedj_ );
-	gameb_->MoveShips( coord, mleft );
+	gameb_->moveShips( coord, mleft );
 }
 
 void QtView::moveright()
 {
 	CoordinateType coord( lastclickedi_, lastclickedj_ );
-	gameb_->MoveShips( coord, mright );
+	gameb_->moveShips( coord, mright );
 }
 
 void QtView::rotateleft()
 {
 	CoordinateType coord( lastclickedi_, lastclickedj_ );
-	gameb_->MoveShips( coord, rotatel );
+	gameb_->moveShips( coord, rotatel );
 }
 
 void QtView::rotateright()
 {
 	CoordinateType coord( lastclickedi_, lastclickedj_ );
-	gameb_->MoveShips( coord, rotater );
+	gameb_->moveShips( coord, rotater );
 }
 
-void QtView::Update( UpdateInfo info )
+void QtView::update( UpdateInfo info )
 {
 	CoordinateType coord = info.getCoord();
 	if ( info.getType() == hit )

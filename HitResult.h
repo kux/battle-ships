@@ -9,7 +9,7 @@ class HitResult {
 public:
 	HitResult();
 
-	virtual std::string GetResult() = 0;
+	virtual std::string getResult() = 0;
 	virtual ~HitResult();
 };
 
@@ -17,9 +17,9 @@ public:
 class HitResultMissed:public HitResult
 {
 public:
-	std::string GetResult();
+	std::string getResult();
 private:
-	static std::string sMissed_;
+	static const std::string sMissed_;
 
 };
 
@@ -27,44 +27,44 @@ private:
 class HitResultSunkPart:public HitResult
 {
 public:
-	std::string GetResult();
+	std::string getResult();
 private:
-	static std::string sMissed_;
+	static const std::string sMissed_;
 };
 
 
 class HitResultSunkShip:public HitResult
 {
 public:
-	std::string GetResult();
+	std::string getResult();
 private:
-	static std::string sMissed_;
+	static const std::string sMissed_;
 };
 
 
 class HitResultSunkAll:public HitResult
 {
 public:
-	std::string GetResult();
+	std::string getResult();
 private:
-	static std::string sMissed_;
+	static const std::string sMissed_;
 
 };
 
 class HitResultAlreadyAttacked:public HitResult
 {
 public:
-	std::string GetResult();
+	std::string getResult();
 private:
-	static std::string sMissed_;
+	static const std::string sMissed_;
 };
 
 class HitResultInvalid:public HitResult
 {
 public:
-	std::string GetResult();
+	std::string getResult();
 private:
-	static std::string sMissed_;
+	static const std::string sMissed_;
 };
 
 #endif

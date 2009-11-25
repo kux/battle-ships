@@ -35,24 +35,24 @@ public:
 	 * returns true if the ship was placed and false if it could not be places
 	 * ( overlapped with another ship or is out of the border )
 	 */
-	bool PlaceShip( const ShipPattern& pattern, const CoordinateType& coord,
+	bool placeShip( const ShipPattern& pattern, const CoordinateType& coord,
 			Orientation orientation, bool diveble )
 	throw ();
 
 	/*
 	 * move ship that has cell at given coordinates
 	 */
-	void MoveShips( const CoordinateType& coord, MoveDirection dir );
+	void moveShips( const CoordinateType& coord, MoveDirection dir );
 
 	/*
 	 * attack the cell at given coordinates
 	 * forwards the request to the underlaying Cell at the given coordinates
 	 */
-	std::list<HitResult*> Attack ( const CoordinateType& coord )
+	std::list<HitResult*> attack ( const CoordinateType& coord )
 	throw( std::bad_alloc );
 
 	//sink ship pointed by Ship* ship
-	HitResult* HitMe( Ship* ship )throw ( std::bad_alloc );
+	HitResult* hitMe( Ship* ship )throw ( std::bad_alloc );
 
 	std::pair<int, int> getBoardSize() { return std::pair<int,int>( height_, width_ ); }
 
@@ -62,10 +62,10 @@ public:
 private:
 
 	//attach ship to the gameboard
-	bool AttachShip( Ship* ship ) throw();
+	bool attachShip( Ship* ship ) throw();
 
 	//detach the ship from the gameboard
-	void DetachShip( Ship* ship ) throw();
+	void detachShip( Ship* ship ) throw();
 
 	//the maximum size of the gameboard is MAX_GSIZE*MAX_GSIZE
 	static const int MAX_GSIZE = 100;

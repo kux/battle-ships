@@ -13,7 +13,7 @@
 
 using namespace std;
 
-void ConsoleView::Update( UpdateInfo info )
+void ConsoleView::update( UpdateInfo info )
 {
 	CoordinateType coord = info.getCoord();
 	if ( info.getType() == hit )
@@ -21,7 +21,7 @@ void ConsoleView::Update( UpdateInfo info )
 		list<HitResult*> hrl = info.getHitResults();
 		for( list<HitResult*>::iterator i = hrl.begin(); i!=hrl.end(); ++i)
 		{
-			cout<<"--------"<<(*i)->GetResult()<<endl;
+			cout<<"--------"<<(*i)->getResult()<<endl;
 		}
 	}
 

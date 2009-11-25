@@ -13,7 +13,7 @@ class QtView : public QDialog, public View
 
 public:
     QtView(QWidget *parent , GameBoard* gb );
-    void Update ( UpdateInfo info );
+    void update ( UpdateInfo info );
     ~QtView();
 
 signals:

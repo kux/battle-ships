@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qtview.h'
 **
-** Created: Sat Dec 13 06:52:30 2008
-**      by: The Qt Meta Object Compiler version 59 (Qt 4.4.3)
+** Created: Thu Nov 26 00:20:28 2009
+**      by: The Qt Meta Object Compiler version 61 (Qt 4.5.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +10,8 @@
 #include "../qtview.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'qtview.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 59
-#error "This file was generated using the moc from 4.4.3. It"
+#elif Q_MOC_OUTPUT_REVISION != 61
+#error "This file was generated using the moc from 4.5.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,12 +20,13 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_QtView[] = {
 
  // content:
-       1,       // revision
+       2,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   10, // methods
+       8,   12, // methods
        0,    0, // properties
        0,    0, // enums/sets
+       0,    0, // constructors
 
  // slots: signature, parameters, type, tag, flags
       11,    8,    7,    7, 0x08,
@@ -81,6 +82,7 @@ int QtView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 5: moveright(); break;
         case 6: rotateleft(); break;
         case 7: rotateright(); break;
+        default: ;
         }
         _id -= 8;
     }

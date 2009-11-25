@@ -51,7 +51,7 @@ private:
 	//it checks for duplicate
 	//checkes that the given coordinates are conex
 	//in order for the ship patterns to be valid, the coordinates MUST be conex
-	bool ValidatePattern( const CoordinateListType& objCoord_);
+	bool validatePattern( const CoordinateListType& objCoord_);
 
 	//checks if 2 given coordinates are adiacent on the board
 	bool isAdiacent( const CoordinateType& x, const CoordinateType& y );

@@ -13,7 +13,7 @@ ShipPattern::ShipPattern( const std::string& sShipTypeName, const CoordinateList
 throw (Exception):
 		sShipTypeName_ ( sShipTypeName )
 {
-	ValidatePattern( objCoord );
+	validatePattern( objCoord );
 	coordList_ = objCoord;
 }
 
@@ -57,7 +57,7 @@ CoordinateListType ShipPattern::getAbsolutePozitions( const CoordinateType& coor
 
 }
 
-bool ShipPattern::ValidatePattern( const CoordinateListType& objCoord_)
+bool ShipPattern::validatePattern( const CoordinateListType& objCoord_)
 {
 	//must not be empty and first coords must be (0,0) ship head
 	if( objCoord_.empty()) throw Exception( Exception::EMPTY_PATTERN );

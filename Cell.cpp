@@ -8,7 +8,7 @@
 using namespace std;
 
 
-list<HitResult*> Cell::HitMe()const throw ( std::bad_alloc )
+list<HitResult*> Cell::hitMe()const throw ( std::bad_alloc )
 {
 	list<HitResult*> lHitResults;
 
@@ -21,7 +21,7 @@ list<HitResult*> Cell::HitMe()const throw ( std::bad_alloc )
 		list<Ship*>::const_iterator end = ships_.end();
 		for ( list<Ship*>::const_iterator i = ships_.begin() ; i!= end; ++i )
 		{
-			lHitResults.push_back( (*i)->HitMe(coord_) );
+			lHitResults.push_back( (*i)->hitMe(coord_) );
 		}
 	}
 

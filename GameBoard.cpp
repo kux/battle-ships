@@ -19,14 +19,14 @@ throw ( Exception, bad_alloc ):
 
 }
 
-bool GameBoard::PlaceShip( const ShipPattern& pattern, const CoordinateType& coord,
+bool GameBoard::placeShip( const ShipPattern& pattern, const CoordinateType& coord,
 		enum Orientation orientation, bool diveble )
 throw (  )
 {
 
 	Ship* newShip = new Ship( this, pattern, coord, orientation, diveble );
 
-	if ( AttachShip( newShip ) )
+	if ( attachShip( newShip ) )
 	{
 		vShips_.push_back( newShip );
 		return true;
@@ -37,7 +37,7 @@ throw (  )
 
 }
 
-void GameBoard::MoveShips( const CoordinateType& coord, MoveDirection dir )
+void GameBoard::moveShips( const CoordinateType& coord, MoveDirection dir )
 {
 	list<Ship*> attachedShips = board_[coord.first][coord.second]->getAttachedShips();
 
@@ -50,34 +50,34 @@ void GameBoard::MoveShips( const CoordinateType& coord, MoveDirection dir )
 
 		//save current state of the ship in case the move fails
 		Ship rollback( **ship_iter );
-		DetachShip( *ship_iter );
-		(*ship_iter)->MoveShip( dir );
+		detachShip( *ship_iter );
+		(*ship_iter)->moveShip( dir );
 
 		//attach ship with it's new coordinates
-		if ( ! AttachShip( *ship_iter ) )
+		if ( ! attachShip( *ship_iter ) )
 		{
 			//if attachment failed reattach to old coordinates
 			**ship_iter = rollback;
-			AttachShip( *ship_iter );
+			attachShip( *ship_iter );
 		}
 	}
 }
 
 
-list<HitResult*> GameBoard::Attack ( const CoordinateType& coord )
+list<HitResult*> GameBoard::attack ( const CoordinateType& coord )
 throw( std::bad_alloc )
 {
 	list<HitResult*> lHResult;
 	if ( (coord.first >= 0 && coord.first < height_)&&(coord.second >= 0 && coord.second < width_))
-		lHResult = board_[coord.first][coord.second]->HitMe();
+		lHResult = board_[coord.first][coord.second]->hitMe();
 
 	//notify views about the state change
 	UpdateInfo info( hit, coord, lHResult );
-	Notify ( info );
+	notify ( info );
 	return lHResult;
 }
 
-HitResult* GameBoard::HitMe( Ship* ship ) throw ( std::bad_alloc )
+HitResult* GameBoard::hitMe( Ship* ship ) throw ( std::bad_alloc )
 {
 	vSunkenShips_.push_back( ship );
 	if ( vSunkenShips_.size() == vShips_.size() )
@@ -86,7 +86,7 @@ HitResult* GameBoard::HitMe( Ship* ship ) throw ( std::bad_alloc )
 		return new HitResultSunkShip();
 }
 
-bool GameBoard::AttachShip( Ship* ship ) throw()
+bool GameBoard::attachShip( Ship* ship ) throw()
 {
 	CoordinateListType absoluteCoords = ship->getAbsoluteCoordinates();
 	CoordinateListType::const_iterator end = absoluteCoords.end();
@@ -99,7 +99,7 @@ bool GameBoard::AttachShip( Ship* ship ) throw()
 		{
 			// if the ship was not attacheble rollback to the previsorious state
 			//( detach from cells that got attached until now )
-			DetachShip( ship );
+			detachShip( ship );
 			return false;
 		}
 	}
@@ -110,14 +110,14 @@ bool GameBoard::AttachShip( Ship* ship ) throw()
 			i != end; ++i )
 	{
 		UpdateInfo info( attach, (*i) );
-		Notify ( info );
+		notify ( info );
 	}
 
 	return true;
 
 }
 
-void GameBoard::DetachShip( Ship* ship ) throw()
+void GameBoard::detachShip( Ship* ship ) throw()
 {
 	CoordinateListType absoluteCoords = ship->getAbsoluteCoordinates();
 	CoordinateListType::const_iterator end = absoluteCoords.end();
@@ -131,7 +131,7 @@ void GameBoard::DetachShip( Ship* ship ) throw()
 			board_[i->first][i->second]->detachShip( ship );
 			//notify views
 			UpdateInfo info( detach, (*i) );
-			Notify ( info );
+			notify ( info );
 
 		}
 	}

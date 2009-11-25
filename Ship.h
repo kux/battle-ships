@@ -51,7 +51,7 @@ public:
 		return coord_;
 	}
 
-	void MoveShip( MoveDirection dir )
+	void moveShip( MoveDirection dir )
 	{
 		switch( dir )
 		{
@@ -75,7 +75,7 @@ public:
 	}
 
 	//hit the ship at the given coordinate
-	HitResult* HitMe( CoordinateType coord )throw ( std::bad_alloc );
+	HitResult* hitMe( CoordinateType coord )throw ( std::bad_alloc );
 
 	~Ship() {};
 

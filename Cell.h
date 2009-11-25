@@ -22,7 +22,7 @@ public:
 	Cell( CoordinateType coord): coord_(coord){};
 
 	//returns a list of hit results, one for each ship attached to this ship
-	std::list<HitResult*> HitMe()const throw ( std::bad_alloc );
+	std::list<HitResult*> hitMe()const throw ( std::bad_alloc );
 
 	//attach a ship to this cell
 	//returns true if attaching succeded false if not
