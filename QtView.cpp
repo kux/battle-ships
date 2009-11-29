@@ -1,4 +1,4 @@
-#include "qtview.h"
+#include "QtView.h"
 #include <QtGui>
 
 #include "GameBoard.h"
@@ -33,7 +33,7 @@ QtView::QtView(QWidget *parent, GameBoard* gb) :
 	for (int i = 0; i < height_; ++i)
 		for (int j = 0; j < width_; ++j) {
 			strboard_[i][j] = 0;
-			sprintf(btext, "%d", strboard_[i][j]);
+			sprintf(btext, "%c", ' ');
 			board_[i][j] = new QPushButton(tr(btext));
 
 		}
@@ -139,8 +139,10 @@ void QtView::update(UpdateInfo info) {
 	char btext[9];
 	for (int i = 0; i < height_; ++i)
 		for (int j = 0; j < width_; ++j) {
-			if (strboard_[i][j] >= 0)
+			if (strboard_[i][j] > 0)
 				sprintf(btext, "%d", strboard_[i][j]);
+			else if (strboard_[i][j] == 0)
+				sprintf(btext, "%c", ' ');
 			else
 				sprintf(btext, "%c", '*');
 			board_[i][j]->setText(tr(btext));

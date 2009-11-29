@@ -2,7 +2,8 @@ TEMPLATE = app
 TARGET = QtView
 QT += core \
     gui
-HEADERS += ConsoleView.h \
+HEADERS += QtView.h \
+    ConsoleView.h \
     UpdateInfo.h \
     Cell.h \
     CoordinateTypes.h \
@@ -12,9 +13,9 @@ HEADERS += ConsoleView.h \
     Model.h \
     Ship.h \
     ShipPattern.h \
-    View.h \
-    qtview.h
-SOURCES += ConsoleView.cpp \
+    View.h
+SOURCES += QtView.cpp \
+    ConsoleView.cpp \
     Cell.cpp \
     Exception.cpp \
     GameBoard.cpp \
@@ -24,7 +25,6 @@ SOURCES += ConsoleView.cpp \
     ShipPattern.cpp \
     runprg.cpp \
     View.cpp \
-    main.cpp \
-    qtview.cpp
+    main.cpp
 FORMS += qtview.ui
 RESOURCES += 

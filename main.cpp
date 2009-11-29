@@ -1,4 +1,4 @@
-#include "qtview.h"
+#include "QtView.h"
 #include "GameBoard.h"
 #include "ConsoleView.h"
 #include "View.h"

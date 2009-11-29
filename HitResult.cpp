@@ -10,19 +10,18 @@
 using namespace std;
 
 const string HitResultMissed::sMissed_ = "missed";
-const string HitResultSunkPart::sMissed_ = "ship hit";
-const string HitResultSunkShip::sMissed_ = "ship sunk";
-const string HitResultSunkAll::sMissed_ = "game won";
-const string HitResultAlreadyAttacked::sMissed_ = "already attacked";
-const string HitResultInvalid::sMissed_ = "invalid attack";
+const string HitResultSunkPart::sShipHitMsg_ = "ship hit";
+const string HitResultSunkShip::sShipSunkMsg_ = "ship sunk";
+const string HitResultSunkAll::sWonMsg_ = "game won";
+const string HitResultAlreadyAttacked::sAlreadyAttackedMsg_ = "already attacked";
+const string HitResultInvalid::sInvalidMsg_ = "invalid attack";
 
 HitResult::HitResult() {
-	// TODO Auto-generated constructor stub
 
 }
 
 HitResult::~HitResult() {
-	// TODO Auto-generated destructor stub
+
 }
 
 string HitResultMissed::getResult() {
@@ -30,22 +29,22 @@ string HitResultMissed::getResult() {
 }
 
 string HitResultSunkPart::getResult() {
-	return sMissed_;
+	return sShipHitMsg_;
 }
 
 string HitResultSunkShip::getResult() {
-	return sMissed_;
+	return sShipSunkMsg_;
 }
 
 string HitResultSunkAll::getResult() {
-	return sMissed_;
+	return sWonMsg_;
 }
 
 string HitResultAlreadyAttacked::getResult() {
-	return sMissed_;
+	return sAlreadyAttackedMsg_;
 }
 
 string HitResultInvalid::getResult() {
-	return sMissed_;
+	return sInvalidMsg_;
 }
 
