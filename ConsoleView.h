@@ -14,7 +14,7 @@
 class ConsoleView: public View {
 public:
 
-	void update( UpdateInfo info );
+	void update(UpdateInfo info);
 
 };
 

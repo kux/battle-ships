@@ -13,24 +13,33 @@
 
 class HitResult;
 
-enum UpdateType { hit, attach, detach };
+enum UpdateType {
+	hit, attach, detach
+};
 
-class UpdateInfo
-{
+class UpdateInfo {
 public:
-	UpdateInfo ( UpdateType type, CoordinateType coord, std::list<HitResult*> hrl ):
-		type_(type), coord_(coord), hrList_(hrl) {};
-	UpdateInfo ( UpdateType type, CoordinateType coord ):
-		type_(type), coord_(coord){};
+	UpdateInfo(UpdateType type, CoordinateType coord, std::list<HitResult*> hrl) :
+		type_(type), coord_(coord), hrList_(hrl) {
+	}
 
-	UpdateType getType() { return type_; }
-	CoordinateType getCoord() { return coord_; }
-	std::list<HitResult*> getHitResults() { return hrList_;}
+	UpdateInfo(UpdateType type, CoordinateType coord) :
+		type_(type), coord_(coord) {
+	}
+
+	UpdateType getType() {
+		return type_;
+	}
+	CoordinateType getCoord() {
+		return coord_;
+	}
+	std::list<HitResult*> getHitResults() {
+		return hrList_;
+	}
 private:
 	UpdateType type_;
 	CoordinateType coord_;
 	std::list<HitResult*> hrList_;
-
 
 };
 

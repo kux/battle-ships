@@ -7,20 +7,18 @@
 class QPushButton;
 class GameBoard;
 
-class QtView : public QDialog, public View
-{
-    Q_OBJECT
+class QtView: public QDialog, public View {
+Q_OBJECT
 
 public:
-    QtView(QWidget *parent , GameBoard* gb );
-    void update ( UpdateInfo info );
-    ~QtView();
+	QtView(QWidget *parent, GameBoard* gb);
+	void update(UpdateInfo info);
+	~QtView();
 
 signals:
 
-
 private slots:
-	void gridClicked( int id );
+	void gridClicked(int id);
 	void attack();
 	void moveup();
 	void movedown();
@@ -30,29 +28,29 @@ private slots:
 	void rotateright();
 
 private:
-    //Ui::QtViewClass ui;
+	//Ui::QtViewClass ui;
 
-    static const int MAX_GSIZE = 100;
+	static const int MAX_GSIZE = 100;
 
-    QPushButton* board_[MAX_GSIZE][MAX_GSIZE];
+	QPushButton* board_[MAX_GSIZE][MAX_GSIZE];
 
-    int strboard_[MAX_GSIZE][MAX_GSIZE];
+	int strboard_[MAX_GSIZE][MAX_GSIZE];
 
-    QPushButton * attackButton;
-    QPushButton * moveUpButton;
-    QPushButton * moveDownButton;
-    QPushButton * moveLeftButton;
-    QPushButton * moveRightButton;
-    QPushButton * rotateLButton;
-    QPushButton * rotateRButton;
+	QPushButton * attackButton;
+	QPushButton * moveUpButton;
+	QPushButton * moveDownButton;
+	QPushButton * moveLeftButton;
+	QPushButton * moveRightButton;
+	QPushButton * rotateLButton;
+	QPushButton * rotateRButton;
 
-    GameBoard* gameb_;
+	GameBoard* gameb_;
 
-    int height_;
-    int width_;
+	int height_;
+	int width_;
 
-    int lastclickedi_;
-    int lastclickedj_;
+	int lastclickedi_;
+	int lastclickedj_;
 
 };
 

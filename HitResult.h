@@ -1,5 +1,4 @@
 
-
 #ifndef HITRESULT_H_
 #define HITRESULT_H_
 
@@ -13,9 +12,7 @@ public:
 	virtual ~HitResult();
 };
 
-
-class HitResultMissed:public HitResult
-{
+class HitResultMissed: public HitResult {
 public:
 	std::string getResult();
 private:
@@ -23,27 +20,21 @@ private:
 
 };
 
-
-class HitResultSunkPart:public HitResult
-{
+class HitResultSunkPart: public HitResult {
 public:
 	std::string getResult();
 private:
 	static const std::string sMissed_;
 };
 
-
-class HitResultSunkShip:public HitResult
-{
+class HitResultSunkShip: public HitResult {
 public:
 	std::string getResult();
 private:
 	static const std::string sMissed_;
 };
 
-
-class HitResultSunkAll:public HitResult
-{
+class HitResultSunkAll: public HitResult {
 public:
 	std::string getResult();
 private:
@@ -51,16 +42,14 @@ private:
 
 };
 
-class HitResultAlreadyAttacked:public HitResult
-{
+class HitResultAlreadyAttacked: public HitResult {
 public:
 	std::string getResult();
 private:
 	static const std::string sMissed_;
 };
 
-class HitResultInvalid:public HitResult
-{
+class HitResultInvalid: public HitResult {
 public:
 	std::string getResult();
 private:

@@ -1,4 +1,3 @@
-
 #ifndef MODEL_H_
 #define MODEL_H_
 
@@ -8,15 +7,13 @@
 
 class Model {
 public:
-	void notify( UpdateInfo info );
-	void attachView( View* newview )
-	{
-		viewList_.push_back( newview );
+	void notify(UpdateInfo info);
+	void attachView(View* newview) {
+		viewList_.push_back(newview);
 	}
 
-	void detachView( View* view )
-	{
-		viewList_.remove ( view );
+	void detachView(View* view) {
+		viewList_.remove(view);
 	}
 
 private:

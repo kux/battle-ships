@@ -12,7 +12,7 @@
 
 class View {
 public:
-	virtual void update( UpdateInfo info ) = 0;
+	virtual void update(UpdateInfo info) = 0;
 	virtual ~View();
 
 };
