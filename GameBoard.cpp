@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-GameBoard::GameBoard(int height, int width) throw (Exception, bad_alloc) :
+GameBoard::GameBoard(int height, int width) throw (Exception) :
 	height_(height), width_(width) {
 
 	//test if the provided sizes aren't bigger than the maximum size allowed
@@ -59,8 +59,7 @@ void GameBoard::moveShips(const CoordinateType& coord, MoveDirection dir) {
 	}
 }
 
-list<HitResult*> GameBoard::attack(const CoordinateType& coord)
-		throw (std::bad_alloc) {
+list<HitResult*> GameBoard::attack(const CoordinateType& coord){
 	list<HitResult*> lHResult;
 	if ((coord.first >= 0 && coord.first < height_) && (coord.second >= 0
 			&& coord.second < width_))
@@ -72,7 +71,7 @@ list<HitResult*> GameBoard::attack(const CoordinateType& coord)
 	return lHResult;
 }
 
-HitResult* GameBoard::hitMe(Ship* ship) throw (std::bad_alloc) {
+HitResult* GameBoard::hitMe(Ship* ship){
 	vSunkenShips_.push_back(ship);
 	if (vSunkenShips_.size() == vShips_.size())
 		return new HitResultSunkAll();

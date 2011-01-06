@@ -8,6 +8,7 @@
 class Model {
 public:
 	void notify(UpdateInfo info);
+
 	void attachView(View* newview) {
 		viewList_.push_back(newview);
 	}

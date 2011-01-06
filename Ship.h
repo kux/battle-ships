@@ -7,18 +7,19 @@
 #include "ShipPattern.h"
 
 class GameBoard;
-/**
- class that will represent a ship
- an instantiated object of this class encapsulates all the ship's information:
- head coordinates( captain's headquarters ), pattern ( that encapsulates
- the ship's relative coordinates, offsets from the head cell ), orientation
- and weather this ship is above or below water
- in order to attach this ship to the board you need to call
- the GameBoard's AttachShip that takes a ship as parameter
- and based on the ship's absolute coordinates
- ( that are calculated from the head coordinates, pattern, orientation )
- attaches the ship to the board by making the Cell's found at the absolute
- coordinates point to the ship object
+
+/*
+ *  class that will represent a ship
+ * an instantiated object of this class encapsulates all the ship's information:
+ * head coordinates( captain's headquarters ), pattern ( that encapsulates
+ * the ship's relative coordinates, offsets from the head cell ), orientation
+ * and weather this ship is above or below water
+ * in order to attach this ship to the board you need to call
+ * the GameBoard's AttachShip that takes a ship as parameter
+ * and based on the ship's absolute coordinates
+ * ( that are calculated from the head coordinates, pattern, orientation )
+ * attaches the ship to the board by making the Cell's found at the absolute
+ * coordinates point to the ship object
  */
 class Ship {
 public:
@@ -35,18 +36,18 @@ public:
 	}
 	;
 
-	// returns weather the ship is overwriteble or not
-	// on a cell, only one non-diveble cell can exist
+	/* returns weather the ship is overwriteble or not
+	 * on a cell, only one non-diveble cell can exist */
 	bool isDiveble() const {
 		return diveble_;
 	}
 
-	//return the ships coordinates
+	/* return the ships coordinates */
 	CoordinateListType getAbsoluteCoordinates() const {
 		return pattern_.getAbsolutePozitions(coord_, orientation_);
 	}
 
-	//return the coordinates of the ship's head
+	/* return the coordinates of the ship's head */
 	CoordinateType getHeadCoords() const {
 		return coord_;
 	}
@@ -88,8 +89,8 @@ public:
 		}
 	}
 
-	//hit the ship at the given coordinate
-	HitResult* hitMe(CoordinateType coord) throw (std::bad_alloc);
+	/* hit the ship at the given coordinate */
+	HitResult* hitMe(CoordinateType coord);
 
 	~Ship() {
 	}
@@ -97,16 +98,14 @@ public:
 
 private:
 
-	//pointer to the board that the ship belongs to
+	// pointer to the board that the ship belongs to
 	GameBoard* board_;
 
-	//the ship's pattern
 	ShipPattern pattern_;
 
 	//the ship's head coordinates
 	CoordinateType coord_;
 
-	//Orientation
 	Orientation orientation_;
 
 	//is it diveble or not ( diveble means that the ship is underwater,

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-list<HitResult*> Cell::hitMe() const throw (std::bad_alloc) {
+list<HitResult*> Cell::hitMe() const{
 	list<HitResult*> hitResults;
 
 	if (ships_.empty()) {
@@ -22,7 +22,7 @@ list<HitResult*> Cell::hitMe() const throw (std::bad_alloc) {
 	return hitResults;
 }
 
-bool Cell::attachShip(Ship* ship) throw () {
+bool Cell::attachShip(Ship* ship) {
 	if (isPlaceble(ship)) {
 		ships_.push_back(ship);
 		return true;
@@ -31,12 +31,12 @@ bool Cell::attachShip(Ship* ship) throw () {
 	return false;
 }
 
-bool Cell::isAttached(Ship* ship) throw () {
+bool Cell::isAttached(Ship* ship) {
 	list<Ship*>::iterator rez = find(ships_.begin(), ships_.end(), ship);
 	return ((rez != ships_.end()) ? true : false);
 }
 
-void Cell::detachShip(Ship* ship) throw () {
+void Cell::detachShip(Ship* ship) {
 	ships_.remove(ship);
 }
 

@@ -25,7 +25,7 @@ public:
 	 * if height or width are bigger than the maximum allowed value of 100
 	 * Exception is thrown
 	 */
-	GameBoard(int height, int width) throw (Exception, std::bad_alloc);
+	GameBoard(int height, int width) throw (Exception);
 
 	/*
 	 * place a ship based on a ShipPattern, coordinates and an Orientation
@@ -44,11 +44,10 @@ public:
 	 * attack the cell at given coordinates
 	 * forwards the request to the underlaying Cell at the given coordinates
 	 */
-	std::list<HitResult*> attack(const CoordinateType& coord)
-			throw (std::bad_alloc);
+	std::list<HitResult*> attack(const CoordinateType& coord);
 
-	//sink ship pointed by Ship* ship
-	HitResult* hitMe(Ship* ship) throw (std::bad_alloc);
+	/* sink ship pointed by Ship* ship */
+	HitResult* hitMe(Ship* ship);
 
 	std::pair<int, int> getBoardSize() {
 		return std::pair<int, int>(height_, width_);
@@ -58,25 +57,20 @@ public:
 
 private:
 
-	//attach ship to the gameboard
 	bool attachShip(Ship* ship) throw ();
 
-	//detach the ship from the gameboard
 	void detachShip(Ship* ship) throw ();
 
-	//the maximum size of the gameboard is MAX_GSIZE*MAX_GSIZE
+	/* the maximum size of the gameboard is MAX_GSIZE*MAX_GSIZE */
 	static const int MAX_GSIZE = 100;
 
-	//gameboard matrix
+	/* gameboard matrix */
 	Cell* board_[MAX_GSIZE][MAX_GSIZE];
 
-	//vector of pointers to live ships that belong to this board
 	std::list<Ship*> vShips_;
 
-	//vector of pointers to sunken sinps that belong to this board
 	std::list<Ship*> vSunkenShips_;
 
-	//gameboard height and width
 	int height_;
 	int width_;
 
